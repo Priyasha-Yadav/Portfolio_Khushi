@@ -1,6 +1,5 @@
 import { ArrowDown, Download, Github, Linkedin, Mail, Sparkles, Code, Palette } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroBackground from '@/assets/hero-bg.jpg';
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -13,27 +12,22 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(250, 237, 205, 0.95), rgba(233, 237, 201, 0.9)), url(${heroBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background via-secondary/20 to-accent/10"
     >
-      {/* Animated background elements */}
+      {/* Modern background pattern */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-primary/30 to-secondary/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-accent/20 to-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-br from-secondary/30 to-accent/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '4s' }}></div>
-      </div>
-
-      {/* Geometric shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-4 h-4 bg-primary/40 rotate-45 animate-float"></div>
-        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-accent/60 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-2/3 right-1/3 w-2 h-8 bg-secondary/50 animate-float" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute top-1/2 left-1/6 w-6 h-6 border-2 border-primary/30 rotate-12 animate-float" style={{ animationDelay: '2.5s' }}></div>
+        {/* Grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
+        
+        {/* Floating orbs */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-accent/15 to-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-br from-secondary/20 to-accent/10 rounded-full blur-2xl animate-float" style={{ animationDelay: '4s' }}></div>
+        
+        {/* Geometric accents */}
+        <div className="absolute top-1/4 right-1/4 w-8 h-8 border border-primary/30 rotate-45 animate-float"></div>
+        <div className="absolute bottom-1/3 left-1/3 w-6 h-6 bg-accent/40 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-2/3 right-1/3 w-4 h-12 bg-secondary/40 rounded-full animate-float" style={{ animationDelay: '3s' }}></div>
       </div>
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
         {/* Content */}
@@ -147,39 +141,51 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Enhanced Profile Image Section */}
+        {/* Professional Profile Section */}
         <div className="relative animate-slide-up">
-          {/* Glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-accent/20 to-secondary/30 rounded-full blur-3xl animate-pulse"></div>
-          
-          <div className="relative z-10">
-            {/* Main profile container with glassmorphism */}
-            <div className="w-80 h-80 lg:w-96 lg:h-96 mx-auto relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl"></div>
-              <div className="relative w-full h-full bg-background/30 backdrop-blur-xl border-2 border-primary/30 rounded-full flex items-center justify-center shadow-2xl hover:shadow-primary/20 transition-all duration-500 group">
-                <div className="w-[90%] h-[90%] bg-gradient-to-br from-secondary/50 to-background/50 backdrop-blur-sm rounded-full flex items-center justify-center border border-primary/20">
-                  <div className="text-center space-y-2">
-                    <div className="w-16 h-16 mx-auto bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mb-4">
-                      <Sparkles className="w-8 h-8 text-white" />
-                    </div>
-                    <p className="text-primary font-semibold text-lg">
-                      Profile Photo
-                    </p>
-                    <span className="text-sm text-muted-foreground block">Upload your photo here</span>
+          <div className="w-80 h-80 lg:w-96 lg:h-96 mx-auto relative group">
+            {/* Outer ring with gradient border */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-secondary rounded-full p-1">
+              <div className="w-full h-full bg-background rounded-full"></div>
+            </div>
+            
+            {/* Main content area */}
+            <div className="relative w-full h-full bg-gradient-to-br from-background/90 to-secondary/10 rounded-full flex items-center justify-center shadow-2xl border border-primary/20 group-hover:border-primary/40 transition-all duration-500">
+              <div className="text-center space-y-4 p-8">
+                {/* Profile icon */}
+                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mb-6 shadow-lg">
+                  <Sparkles className="w-10 h-10 text-white" />
+                </div>
+                
+                {/* Profile text */}
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold text-foreground">
+                    Professional Photo
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Your professional headshot<br />
+                    will be displayed here
+                  </p>
+                </div>
+                
+                {/* Upload hint */}
+                <div className="pt-4">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                    <span className="text-xs text-primary font-medium">Ready for upload</span>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Enhanced floating elements */}
-            <div className="absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-full animate-float flex items-center justify-center shadow-lg">
-              <Code className="w-6 h-6 text-white" />
+            {/* Floating tech icons */}
+            <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl rotate-12 animate-float flex items-center justify-center shadow-xl border border-white/20">
+              <Code className="w-5 h-5 text-white" />
             </div>
-            <div className="absolute -bottom-10 -left-10 w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full animate-float flex items-center justify-center shadow-lg" style={{ animationDelay: '2s' }}>
-              <Palette className="w-5 h-5 text-white" />
+            <div className="absolute -bottom-8 -left-8 w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg -rotate-12 animate-float flex items-center justify-center shadow-lg border border-white/20" style={{ animationDelay: '2s' }}>
+              <Palette className="w-4 h-4 text-white" />
             </div>
-            <div className="absolute top-1/2 -right-14 w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-full animate-float border-2 border-background shadow-lg" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute top-1/4 -left-6 w-6 h-6 bg-gradient-to-br from-accent to-primary rounded-full animate-float" style={{ animationDelay: '3s' }}></div>
+            <div className="absolute top-1/3 -right-12 w-8 h-8 bg-gradient-to-br from-secondary to-accent rounded-full animate-float border-2 border-background shadow-lg" style={{ animationDelay: '1s' }}></div>
           </div>
         </div>
       </div>

@@ -51,11 +51,11 @@ const Skills = () => {
           {/* Skills Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {skillCategories.map((category, index) => (
-              <Card 
-                key={category.title}
-                className="group hover:shadow-card transition-all duration-300 hover:scale-105 bg-gradient-card animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+          <Card 
+            key={category.title}
+            className="group hover:shadow-lg transition-all duration-300 hover:scale-105 glass-card hover-lift animate-fade-in border-primary/20"
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
                 <CardHeader className="text-center pb-4">
                   <div className="text-4xl mb-2">{category.icon}</div>
                   <CardTitle className="text-xl text-foreground">{category.title}</CardTitle>

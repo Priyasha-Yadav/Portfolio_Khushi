@@ -2,52 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+
 
 @layer base {
   :root {
-    /* Portfolio color scheme - warm earthy palette */
-    --background: 45 73% 94%; /* #faedcd - light cream */
-    --foreground: 222.2 84% 4.9%;
+ 
+    --background: 43 51% 94%; 
+    --foreground: 30 25% 20%; 
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 43 51% 94%;
+    --card-foreground: 30 25% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 43 51% 94%;
+    --popover-foreground: 30 25% 20%;
 
-    --primary: 28 28% 57%; /* #d4a373 - warm clay */
-    --primary-foreground: 210 40% 98%;
+    --primary: 28 39% 44%; 
+    --primary-foreground: 43 51% 94%;
 
-    --secondary: 52 60% 95%; /* #fefae0 - light cream accent */
-    --secondary-foreground: 28 28% 57%;
+    --secondary: 54 57% 91%; 
+    --secondary-foreground: 30 25% 20%;
 
-    --muted: 70 35% 89%; /* #e9edc9 - soft green */
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 75 39% 84%; 
+    --muted-foreground: 30 25% 55%;
 
-    --accent: 78 22% 75%; /* #ccd5ae - sage green */
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 87 22% 72%; 
+    --accent-foreground: 30 25% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 78 22% 85%;
-    --input: 78 22% 85%;
-    --ring: 28 28% 57%;
+    --border: 75 39% 84%;
+    --input: 75 39% 84%;
+    --ring: 28 39% 44%;
 
-    /* Custom gradient variables */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.2));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--secondary)));
+    --radius: 1rem;
+
+ 
+    --gradient-hero: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
     
-    /* Animation variables */
+    --shadow-soft: 0 10px 30px -10px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+    
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.1);
-    --shadow-card: 0 8px 32px hsl(var(--primary) / 0.15);
-    --glow-primary: 0 0 40px hsl(var(--primary) / 0.3);
-
-    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -112,5 +110,102 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg) scale(1); 
+    }
+    33% { 
+      transform: translateY(-12px) rotate(2deg) scale(1.05); 
+    }
+    66% { 
+      transform: translateY(-6px) rotate(-1deg) scale(1.02); 
+    }
+  }
+
+  @keyframes fade-in {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px) scale(0.95); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+    }
+  }
+
+  @keyframes slide-up {
+    from { 
+      opacity: 0; 
+      transform: translateY(50px) scale(0.9); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.5);
+    }
+  }
+
+  @keyframes shimmer {
+    0% { 
+      background-position: -200% 0; 
+    }
+    100% { 
+      background-position: 200% 0; 
+    }
+  }
+
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 1.2s ease-out 0.3s both;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--primary) / 0.1),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  /* Modern glass effects */
+  .glass-card {
+    background: hsl(var(--background) / 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border) / 0.2);
+  }
+
+  /* Smooth hover transitions */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-card);
   }
 }
